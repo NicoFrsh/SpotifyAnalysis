@@ -10,9 +10,9 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import explorative_analysis
 import color_palette
 
-client_id = '4036a38d6c97470f92be6d6ec4f52f6a'
+client_id = 'CLIENT_ID'
 os.environ['SPOTIPY_CLIENT_ID'] = client_id
-client_secret = '8014d2962c5a4ca88d9334193d976f02'
+client_secret = 'CLIENT_SECRET'
 os.environ['SPOTIPY_CLIENT_SECRET'] = client_secret
 
 spotify = sp.Spotify(client_credentials_manager=SpotifyClientCredentials())
@@ -39,6 +39,8 @@ centers = color_palette.url_to_clusters(cover_urls[13], n_clusters=len(features_
 print(centers)
 
 color_palette.plot_color_palette(centers)
+
+print(color_palette.make_palette_url(centers))
 
 # Inititalize features df by adding first song's audio features
 af = spotify.audio_features(track_uris)[0]

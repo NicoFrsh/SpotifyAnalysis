@@ -30,3 +30,9 @@ def plot_color_palette(centers):
     plt.title("Image Color Palette")
     # plt.show()
 
+def rgb2hex(r,g,b):
+    return f"{r:02x}{g:02x}{b:02x}"
+
+def make_palette_url(palette):
+    return "https://coolors.co/" + "-".join(rgb2hex(*c) for c in (palette))
+
